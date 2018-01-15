@@ -18,7 +18,7 @@ class CreateDealsTable extends Migration
             $table->integer('ORDER')->nullable();
             $table->boolean('OUTLAY')->nullable(FALSE);
             $table->string('NAME', 200)->nullable(FALSE)->comment('Skaidras naudas saņēmējs/iesniedzējs');
-            $table->float('AMOUNT', 8, 2);
+            $table->float('AMOUNT', 9, 2);
             $table->integer('OBJECTS_ID')->nullable(FALSE)->unsigned()->comment('Objekts');
             $table->integer('ELEMENTS_ID')->nullable(FALSE)->unsigned()->comment('Elements');
             $table->integer('TYPES_ID')->nullable(FALSE)->unsigned()->comment('Veids');
