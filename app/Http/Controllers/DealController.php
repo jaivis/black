@@ -42,9 +42,22 @@ class DealController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd($request->all());
-        die(__METHOD__);
+        //  create object
+        $item = new \App\Models\Deal;
+        //  fill object
+        $item->OUTLAY = $request->OUTLAY;
+        $item->NAME = $request->NAME;
+        $item->AMOUNT = $request->AMOUNT;
+        $item->PERFORMER = $request->PERFORMER;
+        $item->OBJECTS_ID = $request->OBJECTS_ID;
+        $item->SECTIONS_ID = $request->SECTIONS_ID;
+        $item->ELEMENTS_ID = $request->ELEMENTS_ID;
+        $item->TYPES_ID = $request->TYPES_ID;
+        $item->SYSTEMS_ID = $request->SYSTEMS_ID;
+        //  save object into db
+        $item->save();
+
+        return redirect()->route('deals.index');
     }
 
     /**

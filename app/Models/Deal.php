@@ -29,6 +29,7 @@ class Deal extends Model
             ->leftJoin('_TYPES', '_DEALS.TYPES_ID', '=', '_TYPES.ID')
             ->leftJoin('_SECTIONS', '_DEALS.SECTIONS_ID', '=', '_SECTIONS.ID')
             ->leftJoin('_SYSTEMS', '_DEALS.SYSTEMS_ID', '=', '_SYSTEMS.ID')
+            ->orderBy('_DEALS.created_at', 'DESC')
             ->paginate(25);
 
         return $query;
