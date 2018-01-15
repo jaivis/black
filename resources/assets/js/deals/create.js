@@ -34,6 +34,14 @@ new Vue({
         }
     },
     methods: {
+        showLoader: function () {
+            //
+            window.loader('show');
+        },
+        hideLoader: function () {
+            //
+            window.loader('hide');
+        },
         openModal: function (subtype, type) {
             this.modal.type = type;
             this.modal.subtype = subtype;
@@ -81,27 +89,25 @@ new Vue({
             //
             if (_id !== '' && !isNaN(_id)) {
                 //
-                window.loader('show');
+                inst.showLoader();
 
                 //  request for sections list by object id
                 window.axios.get('/agent/sections/parent/' + _id)
                     .then(function (response) {
                         inst.options.sections = response.data;
                         //
-                        window.loader('hide');
+                        inst.hideLoader();
                     })
                     .catch(function (error) {
                         console.log(error);
                         //
-                        window.loader('hide');
+                        inst.hideLoader();
                         //
                         alert('Kļūda pārbaudiet datus');
                     });
             }
         },
         'form.element': function (newVal, oldVal) {
-            //
-            window.loader('show');
             //
             var inst = this;
 
@@ -115,27 +121,25 @@ new Vue({
             //
             if (_id !== '' && !isNaN(_id)) {
                 //
-                window.loader('show');
+                inst.showLoader();
 
                 //  request for types list by element id
                 window.axios.get('/agent/types/parent/' + _id)
                     .then(function (response) {
                         inst.options.types = response.data;
                         //
-                        window.loader('hide');
+                        inst.hideLoader();
                     })
                     .catch(function (error) {
                         console.log(error);
                         //
-                        window.loader('hide');
+                        inst.hideLoader();
                         //
                         alert('Kļūda pārbaudiet datus');
                     });
             }
         },
         'form.type': function (newVal, oldVal) {
-            //
-            window.loader('show');
             //
             var inst = this;
 
@@ -148,19 +152,19 @@ new Vue({
             //
             if (_id !== '' && !isNaN(_id)) {
                 //
-                window.loader('show');
+                inst.showLoader();
 
                 //  request for systems list by type id
                 window.axios.get('/agent/systems/parent/' + _id)
                     .then(function (response) {
                         inst.options.systems = response.data;
                         //
-                        window.loader('hide');
+                        inst.hideLoader();
                     })
                     .catch(function (error) {
                         console.log(error);
                         //
-                        window.loader('hide');
+                        inst.hideLoader();
                         //
                         alert('Kļūda pārbaudiet datus');
                     });
@@ -212,9 +216,4 @@ new Vue({
 
         console.info('deals-create library loaded');
     }
-});
-
-document.querySelector("#v-deals-create form").addEventListener("submit", function (e) {
-    //
-    window.loader('show');
 });

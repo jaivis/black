@@ -9,7 +9,7 @@
                 Izveidot darījumu
             </div>
             <div class="panel-body">
-                <form method="POST" action="{{route('deals.store')}}">
+                <form method="POST" action="{{route('deals.store')}}" v-on:submit="showLoader">
 
                     {{--hidden--}}
                     {{ csrf_field() }}
