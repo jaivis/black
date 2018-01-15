@@ -27,6 +27,7 @@ new Vue({
 
         //
         modal: {
+            title: null,
             subtypeid: null,
             subtype: null,
             type: null,
@@ -43,8 +44,9 @@ new Vue({
             //
             window.loader('hide');
         },
-        openModal: function (subtype, type) {
+        openModal: function (subtype, type, title) {
             //
+            this.modal.title = title;
             this.modal.type = type;
             this.modal.subtype = subtype;
             if(this.modal.subtype !== ''){
@@ -56,6 +58,7 @@ new Vue({
         closeModal: function(){
             //  reset values
             this.modal = {
+                title: null,
                 subtype: null,
                 subtypeid: null,
                 type: null,
