@@ -22,3 +22,16 @@ Route::get('/home', 'DealController@index')->name('home');
 
 //  Deals
 Route::resource('deals', 'DealController');
+
+//  Agent
+Route::prefix('agent')->group(function () {
+    //  elements
+    Route::middleware('auth')->resource('elements', 'Api\ElementController');
+    //  sections
+    Route::middleware('auth')->get('sections/parent/{id}', 'Api\SectionController@parent');
+    // parent types
+    Route::middleware('auth')->get('types/parent/{id}', 'Api\TypeController@parent');
+    // parent (type) systems
+    Route::middleware('auth')->get('systems/parent/{id}', 'Api\SystemController@parent');
+});
+

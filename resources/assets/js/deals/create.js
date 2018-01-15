@@ -84,7 +84,7 @@ new Vue({
                 window.loader('show');
 
                 //  request for sections list by object id
-                window.axios.get('/api/sections/parent/' + _id)
+                window.axios.get('/agent/sections/parent/' + _id)
                     .then(function (response) {
                         inst.options.sections = response.data;
                         //
@@ -118,7 +118,7 @@ new Vue({
                 window.loader('show');
 
                 //  request for types list by element id
-                window.axios.get('/api/types/parent/' + _id)
+                window.axios.get('/agent/types/parent/' + _id)
                     .then(function (response) {
                         inst.options.types = response.data;
                         //
@@ -151,7 +151,7 @@ new Vue({
                 window.loader('show');
 
                 //  request for systems list by type id
-                window.axios.get('/api/systems/parent/' + _id)
+                window.axios.get('/agent/systems/parent/' + _id)
                     .then(function (response) {
                         inst.options.systems = response.data;
                         //
@@ -202,7 +202,7 @@ new Vue({
         var inst = this;
 
         //  request for elements list
-        window.axios.get('/api/elements')
+        window.axios.get('/agent/elements')
             .then(function (response) {
                 inst.options.elements = response.data;
             })
