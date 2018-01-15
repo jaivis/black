@@ -5,7 +5,7 @@
     <div id="deals">
         <h2>
             Darījumu saraksts
-            <a href="{{route('deals.create')}}" class="btn btn-success btn-sm" role="button">
+            <a href="{{route('deals.create')}}" class="btn btn-link" role="button">
                 <span class="glyphicon glyphicon-plus"></span> Pievienot
             </a>
         </h2>
