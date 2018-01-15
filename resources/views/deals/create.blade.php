@@ -110,7 +110,7 @@
                         <div class="col-xs-6">
                             <div class="form-group"
                                  v-bind:class="{'has-error': !validation.ELEMENT, 'has-success': validation.ELEMENT}">
-                                <label for="element">Elements:</label>
+                                <label for="element">Elements (<a href="#" v-on:click="openModal('', 'elements')">Pievienot</a>):</label>
                                 <select class="form-control" id="element" name="ELEMENTS_ID" v-model="form.element">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="element in options.elements" v-bind:value="element.ID">
@@ -122,7 +122,7 @@
                         <div class="col-xs-6">
                             <div class="form-group" v-if="form.element"
                                  v-bind:class="{'has-error': !validation.TYPE, 'has-success': validation.TYPE}">
-                                <label for="type">Veids:</label>
+                                <label for="type">Veids (<a href="#" v-on:click="openModal('element', 'types')">Pievienot</a>):</label>
                                 <select class="form-control" id="type" name="TYPES_ID" v-model="form.type">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="type in options.types" v-bind:value="type.ID">
@@ -138,7 +138,7 @@
                         <div class="col-xs-12">
                             <div class="form-group" v-if="form.type"
                                  v-bind:class="{'has-error': !validation.SYSTEM, 'has-success': validation.SYSTEM}">
-                                <label for="system">Sistēma:</label>
+                                <label for="system">Sistēma (<a href="#" v-on:click="openModal('type', 'systems')">Pievienot</a>):</label>
                                 <select class="form-control" id="system" name="SYSTEMS_ID" v-model="form.system">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="system in options.systems" v-bind:value="system.ID">

@@ -33,8 +33,10 @@ Route::prefix('agent')->middleware('auth')->group(function () {
     Route::post('sections', 'Api\SectionController@store'); // create
     Route::get('sections/parent/{id}', 'Api\SectionController@parent');
     // parent types
+    Route::post('types', 'Api\TypeController@store'); // create
     Route::get('types/parent/{id}', 'Api\TypeController@parent');
     // parent (type) systems
+    Route::post('systems', 'Api\SystemController@store'); // create
     Route::get('systems/parent/{id}', 'Api\SystemController@parent');
 });
 

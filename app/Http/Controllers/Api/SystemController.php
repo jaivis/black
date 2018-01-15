@@ -25,8 +25,26 @@ class SystemController extends \App\Http\Controllers\Controller
      */
     public function store(Request $request)
     {
-        //
-        die(__METHOD__);
+        //  create object
+        $item = new \App\Models\System;
+        //  fill object
+        $item->TYPES_ID = $request->id;
+        $item->NR = $request->nr;
+        $item->NAME = $request->name;
+        //  save object into db
+        $saved = $item->save();
+
+        if($saved){
+            $response = (object)[
+                'ID' => $item->id,
+                'NR' => $item->NR,
+                'NAME' => $item->NAME
+            ];
+        }else{
+            $response = $saved;
+        }
+
+        return response()->json($response);
     }
 
     /**
