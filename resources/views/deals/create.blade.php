@@ -85,14 +85,6 @@
                     <div class="row" v-if="form.object">
                         <div class="col-xs-6">
                             <div class="form-group"
-                                 v-bind:class="{'has-error': !validation.PERFORMER, 'has-success': validation.PERFORMER}">
-                                <label for="performer">Izpildītājs:</label>
-                                <input type="text" class="form-control" name="PERFORMER" id="performer"
-                                       placeholder="Izpildītājs" v-model="form.performer">
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="form-group"
                                  v-bind:class="{'has-error': !validation.SECTION, 'has-success': validation.SECTION}">
                                 <label for="section">Iecirknis (<a href="#" v-on:click="openModal('object', 'sections', 'Jauns iecirknis')">Pievienot</a>):</label>
                                 <select class="form-control" id="section" name="SECTIONS_ID" v-model="form.section">
@@ -101,6 +93,14 @@
                                         @{{ section.NR }} - @{{ section.NAME }}
                                     </option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group"
+                                 v-bind:class="{'has-error': !validation.PERFORMER, 'has-success': validation.PERFORMER}">
+                                <label for="performer">Izpildītājs:</label>
+                                <input type="text" class="form-control" name="PERFORMER" id="performer"
+                                       placeholder="Izpildītājs" v-model="form.performer">
                             </div>
                         </div>
                     </div>

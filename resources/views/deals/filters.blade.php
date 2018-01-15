@@ -59,6 +59,17 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <div class="form-group">
+                            <label for="filter_sections">Iecirkņi:</label>
+                            <select multiple class="form-control" name="_fsec" id="filter_sections">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
                             <label for="filter_elements">Elementi:</label>
                             <select multiple class="form-control" name="_fele" id="filter_elements">
                                 <option>1</option>
@@ -72,17 +83,6 @@
                         <div class="form-group">
                             <label for="filter_types">Veidi:</label>
                             <select multiple class="form-control" name="_ftyp" id="filter_types">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <label for="filter_sections">Iecirkņi:</label>
-                            <select multiple class="form-control" name="_fsec" id="filter_sections">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>

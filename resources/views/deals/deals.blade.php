@@ -21,11 +21,11 @@
                         <th>Nosaukums</th>
                         <th>Summa</th>
                         <th>Objekts</th>
+                        <th>Iecirknis</th>
                         <th>Elements</th>
                         <th>Veids</th>
-                        <th>Izpildītājs</th>
-                        <th>Iecirknis</th>
                         <th>Sistēma</th>
+                        <th>Izpildītājs</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -34,11 +34,11 @@
                         <th>Nosaukums</th>
                         <th>Summa</th>
                         <th>Objekts</th>
+                        <th>Iecirknis</th>
                         <th>Elements</th>
                         <th>Veids</th>
-                        <th>Izpildītājs</th>
-                        <th>Iecirknis</th>
                         <th>Sistēma</th>
+                        <th>Izpildītājs</th>
                     </tr>
                 </tfoot>
                 <?php foreach($deals as $key => $deal): ?>
@@ -47,11 +47,11 @@
                     <td>{{$deal->NAME}}</td>
                     <td class="{{ ($deal->OUTLAY) ? 'cash-out' : 'cash-in' }}">{{ number_format($deal->AMOUNT, 2)}}</td>
                     <td>{{$deal->OBJECT_NAME}}</td>
+                    <td>{{$deal->SECTION_NAME}}</td>
                     <td>{{$deal->ELEMENT_NAME}}</td>
                     <td>{{$deal->TYPE_NAME}}</td>
-                    <td>{{$deal->PERFORMER}}</td>
-                    <td>{{$deal->SECTION_NAME}}</td>
                     <td>{{$deal->SYSTEM_NAME}}</td>
+                    <td>{{$deal->PERFORMER}}</td>
                 </tr>
                 <?php endforeach; ?>
             </table>
