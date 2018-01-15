@@ -36,6 +36,20 @@ new Vue({
         }
     },
     methods: {
+        resetForm: function () {
+            //
+            this.form = {
+                outlay: '0',
+                name: '',
+                amount: '',
+                performer: '',
+                object: '',
+                section: '',
+                element: '',
+                type: '',
+                system: '',
+            };
+        },
         showLoader: function () {
             //
             window.loader('show');
@@ -49,13 +63,13 @@ new Vue({
             this.modal.title = title;
             this.modal.type = type;
             this.modal.subtype = subtype;
-            if(this.modal.subtype !== ''){
+            if (this.modal.subtype !== '') {
                 this.modal.subtypeid = eval('this.form.' + this.modal.subtype);
             }
             //
             window.$('#new_name_nr_modal').modal('show');
         },
-        closeModal: function(){
+        closeModal: function () {
             //  reset values
             this.modal = {
                 title: null,
@@ -68,12 +82,12 @@ new Vue({
             //
             window.$('#new_name_nr_modal').modal('hide');
         },
-        submitModal: function(){
+        submitModal: function () {
             /**
              *  Vispārējā funkcionalitāte
              *  Objects/Sections/Elements/Types/Systems
              */
-            //  instance
+                //  instance
             var inst = this;
             //
             var data = {
@@ -82,12 +96,12 @@ new Vue({
             };
 
             //
-            if(!isNaN(this.modal.subtypeid) && this.modal.subtypeid !== ''){
+            if (!isNaN(this.modal.subtypeid) && this.modal.subtypeid !== '') {
                 data.id = this.modal.subtypeid;
             }
 
             //
-            if(this.modal.type){
+            if (this.modal.type) {
                 //
                 inst.showLoader();
                 //
