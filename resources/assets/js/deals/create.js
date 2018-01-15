@@ -26,8 +26,8 @@ new Vue({
 
         //
         modal: {
-            subtype: null,
             subtypeid: null,
+            subtype: null,
             type: null,
             number: null,
             name: null,
@@ -43,23 +43,70 @@ new Vue({
             window.loader('hide');
         },
         openModal: function (subtype, type) {
+            //
             this.modal.type = type;
             this.modal.subtype = subtype;
             this.modal.subtypeid = eval('this.form.' + subtype);
+            //
             window.$('#new_name_nr_modal').modal('show');
         },
         closeModal: function(){
+            //  reset values
             this.modal = {
                 subtype: null,
                 subtypeid: null,
                 type: null,
-                number: document.querySelector("#new_number").value,
-                name: document.querySelector("#new_name").value,
+                number: null,
+                name: null,
             }
+            //
+            window.$('#new_name_nr_modal').modal('hide');
         },
         submitModal: function(){
+            /**
+             *  Vispārējā funkcionalitāte
+             *  Objects/Sections/Elements/Types/Systems
+             */
+            //  instance
+            var inst = this;
             //
-            alert('Ja pievienots aizver logu, ja nav pievienots tad atstāj atvērtu un parāda kļūdas');
+            var data = {
+                nr: this.modal.number,
+                name: this.modal.name
+            };
+
+            //
+            if(!isNaN(this.modal.subtypeid) && this.modal.subtypeid !== ''){
+                data.id = this.modal.subtypeid;
+            }
+
+            //
+            if(this.modal.type){
+                //
+                inst.showLoader();
+                //
+                axios.post('/agent/' + this.modal.type, data)
+                    .then(function (response) {
+                        var option = response.data;
+                        var options = eval('inst.options.' + inst.modal.type);
+                        //  add to vue - all options array
+                        options.unshift(option);
+                        //
+                        inst.closeModal();
+                        //
+                        inst.hideLoader();
+                        //
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        //
+                        inst.hideLoader();
+                        //
+                        alert("Kļūda pievienojot ierakstu!");
+                    });
+            }
+
+            // alert('Ja pievienots aizver logu, ja nav pievienots tad atstāj atvērtu un parāda kļūdas');
         }
     },
     watch: {

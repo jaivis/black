@@ -177,7 +177,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="closeModal" style="float: left;">
+                        <button type="button" class="btn btn-default" v-on:click="closeModal" style="float: left;">
                             Aizvērt
                         </button>
                         <button type="button" class="btn btn-success" v-on:click="submitModal">Pievienot</button>

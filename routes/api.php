@@ -17,11 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//  elements
-Route::middleware('auth:api')->resource('elements', 'Api\ElementController');
-//  sections
-Route::middleware('auth:api')->get('sections/parent/{id}', 'Api\SectionController@parent');
-// parent types
-Route::middleware('auth:api')->get('types/parent/{id}', 'Api\TypeController@parent');
-// parent (type) systems
-Route::middleware('auth:api')->get('systems/parent/{id}', 'Api\SystemController@parent');
+////  elements
+//Route::middleware('auth:api')->resource('elements', 'Api\ElementController');
+////  sections
+//Route::middleware('auth:api')->get('sections/parent/{id}', 'Api\SectionController@parent');
+//// parent types
+//Route::middleware('auth:api')->get('types/parent/{id}', 'Api\TypeController@parent');
+//// parent (type) systems
+//Route::middleware('auth:api')->get('systems/parent/{id}', 'Api\SystemController@parent');

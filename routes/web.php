@@ -24,14 +24,15 @@ Route::get('/home', 'DealController@index')->name('home');
 Route::resource('deals', 'DealController');
 
 //  Agent
-Route::prefix('agent')->group(function () {
+Route::prefix('agent')->middleware('auth')->group(function () {
     //  elements
-    Route::middleware('auth')->resource('elements', 'Api\ElementController');
+    Route::resource('elements', 'Api\ElementController');
     //  sections
-    Route::middleware('auth')->get('sections/parent/{id}', 'Api\SectionController@parent');
+    Route::post('sections', 'Api\SectionController@store'); // create
+    Route::get('sections/parent/{id}', 'Api\SectionController@parent');
     // parent types
-    Route::middleware('auth')->get('types/parent/{id}', 'Api\TypeController@parent');
+    Route::get('types/parent/{id}', 'Api\TypeController@parent');
     // parent (type) systems
-    Route::middleware('auth')->get('systems/parent/{id}', 'Api\SystemController@parent');
+    Route::get('systems/parent/{id}', 'Api\SystemController@parent');
 });
 
