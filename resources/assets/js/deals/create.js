@@ -5,6 +5,7 @@ new Vue({
     data: {
         //
         options: {
+            objects: null,
             elements: null,
             types: null, // from selected element
             sections: null, // from object id
@@ -46,7 +47,9 @@ new Vue({
             //
             this.modal.type = type;
             this.modal.subtype = subtype;
-            this.modal.subtypeid = eval('this.form.' + subtype);
+            if(this.modal.subtype !== ''){
+                this.modal.subtypeid = eval('this.form.' + this.modal.subtype);
+            }
             //
             window.$('#new_name_nr_modal').modal('show');
         },
@@ -252,13 +255,29 @@ new Vue({
         //
         var inst = this;
 
+        //
+        this.showLoader();
+
+        //  request for objects list
+        window.axios.get('/agent/objects')
+            .then(function (response) {
+                inst.options.objects = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         //  request for elements list
         window.axios.get('/agent/elements')
             .then(function (response) {
                 inst.options.elements = response.data;
+                //
+                inst.hideLoader();
             })
             .catch(function (error) {
                 console.log(error);
+                //
+                inst.hideLoader();
             });
 
         console.info('deals-create library loaded');

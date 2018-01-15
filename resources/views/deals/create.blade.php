@@ -70,12 +70,12 @@
                         <div class="col-xs-12">
                             <div class="form-group"
                                  v-bind:class="{'has-error': !validation.OBJECT, 'has-success': validation.OBJECT}">
-                                <label for="object">Objekts:</label>
+                                <label for="object">Objekts (<a href="#" v-on:click="openModal('', 'objects')">Pievienot</a>):</label>
                                 <select class="form-control" id="object" name="OBJECTS_ID" v-model.number="form.object">
                                     <option value="" selected="selected" disabled="disabled">-</option>
-                                    @foreach(\App\Models\Objekt::all() as $object)
-                                        <option value="{{$object->ID}}">{{$object->NR}} - {{$object->NAME}}</option>
-                                    @endforeach
+                                    <option v-for="object in options.objects" v-bind:value="object.ID">
+                                        @{{ object.NR }} - @{{ object.NAME }}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         {{--<button type="button" class="close" data-dismiss="modal">&times;</button>--}}
-                        <h4 class="modal-title">Jauns iecirknis</h4>
+                        <h4 class="modal-title">Jauns ieraksts</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">

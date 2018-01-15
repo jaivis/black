@@ -25,6 +25,8 @@ Route::resource('deals', 'DealController');
 
 //  Agent
 Route::prefix('agent')->middleware('auth')->group(function () {
+    //  objects
+    Route::resource('objects', 'Api\ObjectController');
     //  elements
     Route::resource('elements', 'Api\ElementController');
     //  sections
