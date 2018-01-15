@@ -1,0 +1,30 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Loader
+@import "loader";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// second hand
+tr.cash-out {
+  background-color: #f2dede;
+}
+
+tr.cash-in {
+  background-color: #dff0d8;
+}
+
+#deals .item {
+  cursor: pointer;
+}
+
+#deals .item:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
