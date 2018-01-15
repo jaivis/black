@@ -12,19 +12,23 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 // second hand
-tr.cash-out {
-  background-color: #f2dede;
-}
-
-tr.cash-in {
-  background-color: #dff0d8;
-}
-
-#deals .item {
-  cursor: pointer;
-}
-
-#deals .item:hover {
+thead, tfoot{
   color: #000000;
-  background-color: #FFFFFF;
 }
+
+.cash-out {
+  color: red;
+}
+
+.cash-in {
+  color: green;
+}
+
+//#deals .item {
+//  cursor: pointer;
+//}
+//
+//#deals .item:hover {
+//  color: #000000;
+//  background-color: #FFFFFF;
+//}

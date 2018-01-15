@@ -10,24 +10,42 @@
             </a>
         </h2>
 
+        {{--filtering component--}}
+        @include('deals.filters')
+
         <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    {{--<th></th>--}}
-                    <th>Nosaukums</th>
-                    <th>Summa</th>
-                    <th>Objekts</th>
-                    <th>Elements</th>
-                    <th>Veids</th>
-                    <th>Izpildītājs</th>
-                    <th>Iecirknis</th>
-                    <th>Sistēma</th>
-                </tr>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {{--<th></th>--}}
+                        <th>Nosaukums</th>
+                        <th>Summa</th>
+                        <th>Objekts</th>
+                        <th>Elements</th>
+                        <th>Veids</th>
+                        <th>Izpildītājs</th>
+                        <th>Iecirknis</th>
+                        <th>Sistēma</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        {{--<th></th>--}}
+                        <th>Nosaukums</th>
+                        <th>Summa</th>
+                        <th>Objekts</th>
+                        <th>Elements</th>
+                        <th>Veids</th>
+                        <th>Izpildītājs</th>
+                        <th>Iecirknis</th>
+                        <th>Sistēma</th>
+                    </tr>
+                </tfoot>
                 <?php foreach($deals as $key => $deal): ?>
-                <tr class="item {{ ($deal->OUTLAY) ? 'cash-out' : 'cash-in' }}">
+                <tr class="item">
                     {{--<td>{{$deal->ID}}</td>--}}
                     <td>{{$deal->NAME}}</td>
-                    <td>{{ number_format($deal->AMOUNT, 2)}}</td>
+                    <td class="{{ ($deal->OUTLAY) ? 'cash-out' : 'cash-in' }}">{{ number_format($deal->AMOUNT, 2)}}</td>
                     <td>{{$deal->OBJECT_NAME}}</td>
                     <td>{{$deal->ELEMENT_NAME}}</td>
                     <td>{{$deal->TYPE_NAME}}</td>

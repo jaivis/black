@@ -55,11 +55,11 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group"
                                  v-bind:class="{'has-error': !validation.AMOUNT, 'has-success': validation.AMOUNT}">
-                                <label for="amount">Daudzums:</label>
+                                <label for="amount">Summa:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">&euro;</span>
                                     <input type="tel" class="form-control" name="AMOUNT" id="amount"
-                                           placeholder="Daudzums" v-model.number="form.amount">
+                                           placeholder="Summa" v-model.number="form.amount">
                                 </div>
                             </div>
                         </div>
