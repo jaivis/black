@@ -38,20 +38,20 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <div class="form-group">
-                            <label for="filter_performer">Izpildītājs:</label>
-                            <input type="text" class="form-control" name="_fper" id="filter_performer"
-                                   placeholder="Izpildītājs">
+                            <label for="filter_objects">Objekti:</label>
+                            <select class="form-control" name="_fobj" id="filter_objects">
+                                <option value="" selected="selected">-</option>
+                                @foreach(\App\Models\Objekt::all() as $object)
+                                    <option value="{{$object->ID}}">{{$object->NR}} - {{$object->NAME}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <div class="form-group">
-                            <label for="filter_objects">Objekti:</label>
-                            <select multiple class="form-control" name="_fobj" id="filter_objects">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
+                            <label for="filter_performer">Izpildītājs:</label>
+                            <input type="text" class="form-control" name="_fper" id="filter_performer"
+                                   placeholder="Izpildītājs">
                         </div>
                     </div>
                 </div>
