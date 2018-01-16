@@ -17,8 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'DealController@index');
-Route::get('/home', 'DealController@index')->name('home');
+Route::get('/', 'DealController@index')->name('home');
 
 //  Deals
 Route::resource('deals', 'DealController');

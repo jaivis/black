@@ -47,7 +47,7 @@ class DealController extends Controller
         //  fill object
         $item->OUTLAY = $request->OUTLAY;
         $item->NAME = $request->NAME;
-        $item->AMOUNT = $request->AMOUNT;
+        $item->AMOUNT = str_replace('-', '', $request->AMOUNT);
         $item->PERFORMER = $request->PERFORMER;
         $item->OBJECTS_ID = $request->OBJECTS_ID;
         $item->SECTIONS_ID = $request->SECTIONS_ID;

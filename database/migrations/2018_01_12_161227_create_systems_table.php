@@ -18,12 +18,12 @@ class CreateSystemsTable extends Migration
             $table->integer('TYPES_ID')->unsigned();
             $table->string('NR', 20)->nullable(FALSE)->comment('Sistēmas numurs');
             $table->string('NAME', 255)->nullable(FALSE)->comment('Sistēmas nosaukums');
-            $table->integer('PARENT_ID')->nullable()->unsigned();
+//            $table->integer('PARENT_ID')->nullable()->unsigned();
             $table->timestamps();
 
-            $table->foreign('TYPES_ID')
-                ->references('ID')->on('_TYPES')
-                ->onDelete('cascade');
+//            $table->foreign('TYPES_ID')
+//                ->references('ID')->on('_TYPES')
+//                ->onDelete('cascade');
         });
     }
 

@@ -18,12 +18,12 @@ class CreateTypesTable extends Migration
             $table->integer('ELEMENTS_ID')->unsigned();
             $table->string('NR', 20)->unique()->nullable(FALSE)->comment('Veida numurs');
             $table->string('NAME', 255)->nullable(FALSE)->comment('Veida nosaukums');
-            $table->integer('PARENT_ID')->nullable()->unsigned();
+//            $table->integer('PARENT_ID')->nullable()->unsigned();
             $table->timestamps();
 
-            $table->foreign('ELEMENTS_ID')
-                ->references('ID')->on('_ELEMENTS')
-                ->onDelete('cascade');
+//            $table->foreign('ELEMENTS_ID')
+//                ->references('ID')->on('_ELEMENTS')
+//                ->onDelete('cascade');
         });
     }
 

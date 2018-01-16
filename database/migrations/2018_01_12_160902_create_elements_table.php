@@ -17,7 +17,7 @@ class CreateElementsTable extends Migration
             $table->increments('ID');
             $table->string('NR', 20)->unique()->nullable(FALSE)->comment('Elementa numurs');
             $table->string('NAME', 255)->nullable(FALSE)->comment('Elementa nosaukums');
-            $table->integer('PARENT_ID')->nullable()->unsigned();
+//            $table->integer('PARENT_ID')->nullable()->unsigned();
             $table->timestamps();
         });
     }

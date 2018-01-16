@@ -18,12 +18,12 @@ class CreateSectionsTable extends Migration
             $table->integer('OBJECTS_ID')->unsigned();
             $table->string('NR', 20)->nullable(FALSE)->comment('Iecirkņa numurs');
             $table->string('NAME', 255)->nullable(FALSE)->comment('Iecirkņa nosaukums');
-            $table->integer('PARENT_ID')->nullable()->unsigned();
+//            $table->integer('PARENT_ID')->nullable()->unsigned();
             $table->timestamps();
 
-            $table->foreign('OBJECTS_ID')
-                ->references('ID')->on('_OBJECTS')
-                ->onDelete('cascade');
+//            $table->foreign('OBJECTS_ID')
+//                ->references('ID')->on('_OBJECTS')
+//                ->onDelete('cascade');
         });
     }
 
