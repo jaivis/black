@@ -17,8 +17,7 @@ class ObjectsTableSeeder extends Seeder
         $table = "_OBJECTS";
 
         //  Truncate
-        DB::table($table)->delete();
-        DB::statement("ALTER TABLE `{$table}` AUTO_INCREMENT = 1;");
+        DB::table($table)->truncate();
 
         //
         for ($i = 1; $i <= 100; $i++) {

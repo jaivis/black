@@ -17,8 +17,7 @@ class SectionsTableSeeder extends Seeder
         $table = "_SECTIONS";
 
         //  Truncate
-        DB::table($table)->delete();
-        DB::statement("ALTER TABLE `{$table}` AUTO_INCREMENT = 1;");
+        DB::table($table)->truncate();
 
         //
         $opt = [

@@ -16,8 +16,7 @@ class DealsTableSeeder extends Seeder
         $table = "_DEALS";
 
         //  Truncate
-        DB::table($table)->delete();
-        DB::statement("ALTER TABLE `{$table}` AUTO_INCREMENT = 1;");
+        DB::table($table)->truncate();
 
         $names = [
             'Jānis',
