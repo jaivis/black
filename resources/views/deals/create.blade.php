@@ -152,7 +152,7 @@
                     {{--buttons--}}
                     <a href="{{route('deals.index')}}" class="btn btn-link" style="float: left; color: red;">Atpakaļ</a>
                     {{--<button class="btn btn-link" type="button" v-on:click="resetForm" style="float: left;">Notīrīt laukus</button>--}}
-                    <button type="submit" class="btn btn-success" :disabled="!isValid"  style="float: right;">Pievienot</button>
+                    <button type="submit" class="btn btn-success" :disabled="!isValid" style="float: right;">Pievienot</button>
 
                 </form>
             </div>

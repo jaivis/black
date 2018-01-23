@@ -12,7 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-mix.js('resources/assets/js/deals/create.js', 'public/js/deals')
+.js('resources/assets/js/deals/create.js', 'public/js/deals')
+.js('resources/assets/js/deals/filters.js', 'public/js/deals')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
 if (mix.inProduction()) {
