@@ -28,7 +28,7 @@
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#app-navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="sr-only">Izvērst izvēlni</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -36,7 +36,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Studija') }}
                 </a>
             </div>
 
@@ -50,7 +50,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
+                        {{--<li><a href="{{ route('login') }}">Login</a></li>--}}
                         {{--<li><a href="{{ route('register') }}">Register</a></li>--}}
                     @else
                         <li class="dropdown">
@@ -64,7 +64,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Beigt darbu
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -81,6 +81,13 @@
     </nav>
 
     <div class="container">
+
+        @if (session('statusText') && session('statusClass'))
+        <div class="alert {{session('statusClass')}}">
+            <strong>Veiksmīgi!</strong> {{session('statusText')}}.
+        </div>
+        @endif
+
         @yield('content')
     </div>
 

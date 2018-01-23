@@ -57,7 +57,7 @@ class DealController extends Controller
         //  save object into db
         $item->save();
 
-        return redirect()->route('deals.index');
+        return redirect()->route('deals.index')->with(['statusText' => 'Darījums izveidots.', 'statusClass' => 'alert-success']);
     }
 
     /**
@@ -106,6 +106,10 @@ class DealController extends Controller
     public function destroy($id)
     {
         //
-        die(__METHOD__);
+        $deal = \App\Models\Deal::find($id);
+        $deal->delete();
+
+        //
+        return redirect()->route('deals.index')->with(['statusText' => 'Darījums izdzēsts.', 'statusClass' => 'alert-success']);
     }
 }

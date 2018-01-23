@@ -13,6 +13,7 @@ class Deal extends Model
      * @var string
      */
     protected $table = '_DEALS';
+    protected $primaryKey = 'ID';
 
     public static function visi()
     {
@@ -76,6 +77,10 @@ class Deal extends Model
                 return $query;
             })
             ->paginate(config('system_params.deallist_items_per_page', 25));
+
+        if ($filter) {
+            $query = $query->appends(['filter' => (array)$filter]);
+        }
 
         return $query;
     }

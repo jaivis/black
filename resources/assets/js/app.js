@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 require('./loader');
+require('./laravel');
 
 // window.Vue = require('vue');
 
