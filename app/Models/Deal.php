@@ -38,8 +38,8 @@ class Deal extends Model
             ->when($filter, function ($query) use ($filter) {
 
                 //  outlay
-                if ($filter->outlay ?? FALSE) {
-                    $query->where('_DEALS.OUTLAY', $filter->outlay);
+                if (isset($filter->outlay)) {
+                    $query->where('_DEALS.OUTLAY', (int) $filter->outlay);
                 }
                 //  name
                 if ($filter->name ?? FALSE) {
