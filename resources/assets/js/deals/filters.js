@@ -112,7 +112,7 @@ new Vue({
             /*  name set/remove start    */
             //  vars
             var id = "#filter_objects";
-            var name = "filter[objects_id]";
+            var name = "filter[objects_id][]";
             //
             if (newVal !== '') {
                 document.querySelector(id).setAttribute("name", name)
