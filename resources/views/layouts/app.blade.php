@@ -96,8 +96,8 @@
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 
-@if(\Request::route()->getName() === 'deals.create')
-    <script src="{{ mix('js/deals/create.js') }}"></script>
+@if(in_array(\Request::route()->getName(), ['deals.create', 'deals.edit']))
+    <script src="{{ mix('js/deals/form.js') }}"></script>
 @endif
 </body>
 </html>

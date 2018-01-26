@@ -2,18 +2,18 @@
 
 @section('content')
 
-    <div id="v-deals-create">
+    <div id="v-deals-form">
 
         <div class="panel panel-success">
             <div class="panel-heading">
-                Izveidot darījumu
+                Darījuma dati
             </div>
             <div class="panel-body">
-                <form method="POST" action="{{route('deals.store')}}" v-on:submit="showLoader">
+                <form method="{{ $method }}" action="{{ $route }}" v-on:submit="showLoader">
 
                     {{--hidden--}}
                     {{ csrf_field() }}
-                    {{ method_field('POST') }}
+                    {{ method_field($method) }}
 
                     {{--Errors & Validation--}}
                     {{--<div class="row">--}}
@@ -188,6 +188,10 @@
 
             </div>
         </div>
+
+        @if($deal)
+            {{----}}
+        @endif
 
     </div>
 

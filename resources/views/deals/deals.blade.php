@@ -55,7 +55,10 @@
                     <td>{{$deal->TYPE_NAME}}</td>
                     <td>{{$deal->SYSTEM_NAME}}</td>
                     <td>{{$deal->PERFORMER}}</td>
-                    <td>
+                    <td class="text-center">
+                        <a href="{{ route('deals.edit', $deal->ID) }}" style="padding-right: 15px;">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
                         <a href="{{ route('deals.destroy', $deal->ID) }}" data-method="delete"
                            data-token="{{csrf_token()}}" data-confirm="Dzēst šo darījumu '{{$deal->OBJECT_NR}} - {{$deal->OBJECT_NAME}}'?">
                             <span class="glyphicon glyphicon-trash"></span>

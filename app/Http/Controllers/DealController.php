@@ -31,7 +31,7 @@ class DealController extends Controller
     public function create()
     {
         //
-        return view('deals.create');
+        return view('deals.form', ['route' => route('deals.store'), 'method' => 'POST', 'deal' => []]);
     }
 
     /**
@@ -81,7 +81,9 @@ class DealController extends Controller
     public function edit($id)
     {
         //
-        die(__METHOD__);
+        $data = \App\Models\Deal::find($id);
+        //
+        return view('deals.form', ['route' => route('deals.update', $id), 'method' => 'PATCH', 'deal' => $data]);
     }
 
     /**

@@ -1,7 +1,7 @@
 window.Vue = require('vue');
 
 new Vue({
-    el: '#v-deals-create',
+    el: '#v-deals-form',
     data: {
         //
         options: {
