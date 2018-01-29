@@ -31,7 +31,11 @@ class DealController extends Controller
     public function create()
     {
         //
-        return view('deals.form', ['route' => route('deals.store'), 'method' => 'POST', 'deal' => []]);
+        return view('deals.form', [
+            'route' => route('deals.store'),
+            'method' => 'POST',
+            'method_field' => 'POST'
+        ]);
     }
 
     /**
@@ -81,13 +85,10 @@ class DealController extends Controller
     public function edit($id)
     {
         //
-        $deal = \App\Models\Deal::find($id);
-
-        //
         return view('deals.form', [
             'route' => route('deals.update', $id),
-            'method' => 'PATCH',
-            'deal' => $deal
+            'method' => 'POST',
+            'method_field' => 'PATCH'
         ]);
     }
 
@@ -101,7 +102,21 @@ class DealController extends Controller
     public function update(Request $request, $id)
     {
         //
-        die(__METHOD__);
+        $deal = \App\Models\Deal::find($id);
+        //  update objects
+        $deal->OUTLAY = $request->OUTLAY;
+        $deal->NAME = $request->NAME;
+        $deal->AMOUNT = str_replace('-', '', $request->AMOUNT);
+        $deal->PERFORMER = $request->PERFORMER;
+        $deal->OBJECTS_ID = $request->OBJECTS_ID;
+        $deal->SECTIONS_ID = $request->SECTIONS_ID;
+        $deal->ELEMENTS_ID = $request->ELEMENTS_ID;
+        $deal->TYPES_ID = $request->TYPES_ID;
+        $deal->SYSTEMS_ID = $request->SYSTEMS_ID;
+        //  update object
+        $deal->save();
+
+        return redirect()->route('deals.index')->with(['statusText' => 'Darījums veiksmīgi izlabots.', 'statusClass' => 'alert-success']);
     }
 
     /**

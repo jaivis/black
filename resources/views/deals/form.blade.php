@@ -13,7 +13,7 @@
 
                     {{--hidden--}}
                     {{ csrf_field() }}
-                    {{ method_field($method) }}
+                    {{ method_field($method_field) }}
 
                     {{--Errors & Validation--}}
                     {{--<div class="row">--}}
@@ -70,7 +70,8 @@
                         <div class="col-xs-12">
                             <div class="form-group"
                                  v-bind:class="{'has-error': !validation.OBJECT, 'has-success': validation.OBJECT}">
-                                <label for="object">Objekts (<a href="#" v-on:click="openModal('', 'objects', 'Jauns objekts')">Pievienot</a>):</label>
+                                <label for="object">Objekts (<a href="#"
+                                                                v-on:click="openModal('', 'objects', 'Jauns objekts')">Pievienot</a>):</label>
                                 <select class="form-control" id="object" name="OBJECTS_ID" v-model.number="form.object">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="object in options.objects" v-bind:value="object.ID">
@@ -86,7 +87,8 @@
                         <div class="col-xs-6">
                             <div class="form-group"
                                  v-bind:class="{'has-error': !validation.SECTION, 'has-success': validation.SECTION}">
-                                <label for="section">Iecirknis (<a href="#" v-on:click="openModal('object', 'sections', 'Jauns iecirknis')">Pievienot</a>):</label>
+                                <label for="section">Iecirknis (<a href="#"
+                                                                   v-on:click="openModal('object', 'sections', 'Jauns iecirknis')">Pievienot</a>):</label>
                                 <select class="form-control" id="section" name="SECTIONS_ID" v-model="form.section">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="section in options.sections" v-bind:value="section.ID">
@@ -110,7 +112,8 @@
                         <div class="col-xs-6">
                             <div class="form-group"
                                  v-bind:class="{'has-error': !validation.ELEMENT, 'has-success': validation.ELEMENT}">
-                                <label for="element">Elements (<a href="#" v-on:click="openModal('', 'elements', 'Jauns elements')">Pievienot</a>):</label>
+                                <label for="element">Elements (<a href="#"
+                                                                  v-on:click="openModal('', 'elements', 'Jauns elements')">Pievienot</a>):</label>
                                 <select class="form-control" id="element" name="ELEMENTS_ID" v-model="form.element">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="element in options.elements" v-bind:value="element.ID">
@@ -122,7 +125,8 @@
                         <div class="col-xs-6">
                             <div class="form-group" v-if="form.element"
                                  v-bind:class="{'has-error': !validation.TYPE, 'has-success': validation.TYPE}">
-                                <label for="type">Veids (<a href="#" v-on:click="openModal('element', 'types', 'Jauns veids')">Pievienot</a>):</label>
+                                <label for="type">Veids (<a href="#"
+                                                            v-on:click="openModal('element', 'types', 'Jauns veids')">Pievienot</a>):</label>
                                 <select class="form-control" id="type" name="TYPES_ID" v-model="form.type">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="type in options.types" v-bind:value="type.ID">
@@ -138,7 +142,8 @@
                         <div class="col-xs-12">
                             <div class="form-group" v-if="form.type"
                                  v-bind:class="{'has-error': !validation.SYSTEM, 'has-success': validation.SYSTEM}">
-                                <label for="system">Sistēma (<a href="#" v-on:click="openModal('type', 'systems', 'Jauna sistēma')">Pievienot</a>):</label>
+                                <label for="system">Sistēma (<a href="#"
+                                                                v-on:click="openModal('type', 'systems', 'Jauna sistēma')">Pievienot</a>):</label>
                                 <select class="form-control" id="system" name="SYSTEMS_ID" v-model="form.system">
                                     <option value="" selected="selected" disabled="disabled">-</option>
                                     <option v-for="system in options.systems" v-bind:value="system.ID">
@@ -152,14 +157,16 @@
                     {{--buttons--}}
                     <a href="{{route('deals.index')}}" class="btn btn-link" style="float: left; color: red;">Atpakaļ</a>
                     {{--<button class="btn btn-link" type="button" v-on:click="resetForm" style="float: left;">Notīrīt laukus</button>--}}
-                    <button type="submit" class="btn btn-success" :disabled="!isValid" style="float: right;">Pievienot</button>
+                    <button type="submit" class="btn btn-success" :disabled="!isValid" style="float: right;">Pievienot
+                    </button>
 
                 </form>
             </div>
         </div>
 
         <!-- Modal -->
-        <div id="new_name_nr_modal" class="modal fade" role="dialog" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div id="new_name_nr_modal" class="modal fade" role="dialog" tabindex="-1" data-backdrop="static"
+             data-keyboard="false">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -188,10 +195,6 @@
 
             </div>
         </div>
-
-        @if($deal)
-            {{----}}
-        @endif
 
     </div>
 
