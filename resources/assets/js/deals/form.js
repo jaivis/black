@@ -33,7 +33,10 @@ new Vue({
             type: null,
             number: null,
             name: null,
-        }
+        },
+
+        //  if edit mode
+        edit: false
     },
     methods: {
         resetForm: function () {
@@ -162,8 +165,23 @@ new Vue({
                 window.axios.get('/agent/sections/parent/' + _id)
                     .then(function (response) {
                         inst.options.sections = response.data;
-                        //
-                        inst.hideLoader();
+
+                        //  edit
+                        if (inst.edit && inst.edit.SECTIONS_ID  && !inst.form.section) {
+                            inst.form.section = inst.edit.SECTIONS_ID;
+                        }else{
+                            //
+                            inst.hideLoader();
+                        }
+
+                        //  load elements after auto 'sections' select. HERE - Because element action fot fire elements ajax call
+                        if (inst.edit && inst.edit.ELEMENTS_ID && !inst.form.element) {
+                            inst.form.element = inst.edit.ELEMENTS_ID;
+                        }else{
+                            //
+                            inst.hideLoader();
+                        }
+
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -194,8 +212,15 @@ new Vue({
                 window.axios.get('/agent/types/parent/' + _id)
                     .then(function (response) {
                         inst.options.types = response.data;
-                        //
-                        inst.hideLoader();
+
+                        //  edit
+                        if (inst.edit && inst.edit.TYPES_ID && !inst.form.type) {
+                            inst.form.type = inst.edit.TYPES_ID;
+                        }else{
+                            //
+                            inst.hideLoader();
+                        }
+
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -225,8 +250,15 @@ new Vue({
                 window.axios.get('/agent/systems/parent/' + _id)
                     .then(function (response) {
                         inst.options.systems = response.data;
-                        //
-                        inst.hideLoader();
+
+                        //  edit
+                        if (inst.edit && inst.edit.SYSTEMS_ID && !inst.form.system) {
+                            inst.form.system = inst.edit.SYSTEMS_ID;
+                        }else{
+                            //
+                            inst.hideLoader();
+                        }
+
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -237,13 +269,23 @@ new Vue({
                     });
             }
         },
-        'form.amount': function (newVal, oldVal) {
-            if (this.form.amount >= 0) {
-                this.form.outlay = 0;
-            } else {
-                this.form.outlay = 1;
+        // 'form.amount': function (newVal, oldVal) {
+        //     if (this.form.amount >= 0) {
+        //         this.form.outlay = 0;
+        //     } else {
+        //         this.form.outlay = 1;
+        //     }
+        // },
+        'form.system': function (newVal, oldVal) {
+            //  null edit - because all data are loaded
+            //  don't touch - if not nulled incorrect working after elemnt, type select
+            if(this.edit){
+                this.hideLoader();
             }
-        }
+            //
+            this.edit = false;
+        },
+
     },
     computed: {
 
@@ -275,10 +317,37 @@ new Vue({
         //
         this.showLoader();
 
+        // deal id
+        var exsist_id = window.location.pathname.split('/')[2]
+        //
+        if (exsist_id && !isNaN(exsist_id)) {
+            //
+            window.axios.get('/agent/deal/' + exsist_id)
+                .then(function (response) {
+                    inst.edit = response.data;
+
+                    //  edit - set main form data
+                    if (inst.edit) {
+                        inst.form.amount = inst.edit.AMOUNT;
+                        inst.form.outlay = inst.edit.OUTLAY;
+                        inst.form.name = inst.edit.NAME;
+                        inst.form.performer = inst.edit.PERFORMER;
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
         //  request for objects list
         window.axios.get('/agent/objects')
             .then(function (response) {
                 inst.options.objects = response.data;
+
+                //  edit
+                if (inst.edit && inst.edit.OBJECTS_ID  && !inst.form.object) {
+                    inst.form.object = inst.edit.OBJECTS_ID;
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -288,8 +357,11 @@ new Vue({
         window.axios.get('/agent/elements')
             .then(function (response) {
                 inst.options.elements = response.data;
+
                 //
-                inst.hideLoader();
+                if(!inst.edit){
+                    inst.hideLoader();
+                }
             })
             .catch(function (error) {
                 console.log(error);
