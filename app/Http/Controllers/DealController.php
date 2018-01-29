@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Mockery\Exception;
 
 class DealController extends Controller
 {
