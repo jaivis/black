@@ -19,6 +19,8 @@ class SectionsTableSeeder extends Seeder
         //  Truncate
         DB::table($table)->truncate();
 
+        return;
+
         //
         $opt = [
             'Māja',

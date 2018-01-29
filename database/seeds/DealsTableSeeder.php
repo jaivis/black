@@ -18,6 +18,8 @@ class DealsTableSeeder extends Seeder
         //  Truncate
         DB::table($table)->truncate();
 
+        return;
+
         $names = [
             'Jānis',
             'Pēteris',

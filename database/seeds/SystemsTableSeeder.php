@@ -18,6 +18,8 @@ class SystemsTableSeeder extends Seeder
         //  Truncate
         DB::table($table)->truncate();
 
+        return;
+
         //
         for ($i = 1; $i <= 100; $i++) {
 
