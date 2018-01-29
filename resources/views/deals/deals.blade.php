@@ -50,10 +50,10 @@
                     <td>{{$deal->NAME}}</td>
                     <td class="{{ ($deal->OUTLAY) ? 'cash-out' : 'cash-in' }}">{{ number_format($deal->AMOUNT, 2)}}</td>
                     <td>{{$deal->OBJECT_NR}} - {{$deal->OBJECT_NAME}}</td>
-                    <td>{{$deal->SECTION_NAME}}</td>
-                    <td>{{$deal->ELEMENT_NAME}}</td>
-                    <td>{{$deal->TYPE_NAME}}</td>
-                    <td>{{$deal->SYSTEM_NAME}}</td>
+                    <td>{{$deal->SECTION_NR}} - {{$deal->SECTION_NAME}}</td>
+                    <td>{{$deal->ELEMENT_NR}} - {{$deal->ELEMENT_NAME}}</td>
+                    <td>{{$deal->TYPE_NR}} - {{$deal->TYPE_NAME}}</td>
+                    <td>{{$deal->SYSTEM_NR}} - {{$deal->SYSTEM_NAME}}</td>
                     <td>{{$deal->PERFORMER}}</td>
                     <td class="text-center">
                         <a href="{{ route('deals.edit', $deal->ID) }}" style="padding-right: 15px;">

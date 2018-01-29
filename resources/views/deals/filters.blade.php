@@ -8,7 +8,8 @@
         </h4>
     </div>
     <div class="panel-body">
-        <div id="filtering" class="panel-collapse collapse <?= (isset($_GET['filter'])) ? 'in' : NULL; ?>">
+{{--        <div id="filtering" class="panel-collapse collapse {{ (isset($_GET['filter'])) ? 'in' : NULL }}">--}}
+        <div id="filtering" class="panel-collapse collapse">
 
             <form method="GET" action="{{route('deals.index')}}" id="filter_form">
                 <div class="row">
