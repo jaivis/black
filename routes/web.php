@@ -24,6 +24,8 @@ Route::resource('deals', 'DealController');
 
 //  Agent
 Route::prefix('agent')->middleware('auth')->group(function () {
+    //  deal - concrete
+    Route::resource('deal', 'Api\DealController');
     //  objects
     Route::resource('objects', 'Api\ObjectController');
     //  elements
