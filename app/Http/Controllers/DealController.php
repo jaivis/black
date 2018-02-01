@@ -36,7 +36,7 @@ class DealController extends Controller
             'method' => 'POST',
             'method_field' => 'POST',
             'form' => [
-                'class' => 'panel-success'
+                'class' => 'success'
             ],
             'text' => [
                 'header' => 'Darījuma dati'
@@ -100,7 +100,7 @@ class DealController extends Controller
             'method' => 'POST',
             'method_field' => 'PATCH',
             'form' => [
-                'class' => 'panel-primary'
+                'class' => 'primary'
             ],
             'text' => [
                 'header' => 'Darījuma dati'

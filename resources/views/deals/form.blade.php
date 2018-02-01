@@ -4,7 +4,7 @@
 
     <div id="v-deals-form">
 
-        <div class="panel {{$form['class']}}">
+        <div class="panel panel-{{$form['class']}}">
             <div class="panel-heading">
                 {{$text['header']}}
             </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group"
-                                 v-bind:class="{'has-error': !validation.AMOUNT, 'has-success': validation.AMOUNT}">
+                                 v-bind:class="{'has-error': !validation.AMOUNT, 'has-{{$form['class']}}': validation.AMOUNT}">
                                 <label for="amount">Summa:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">&euro;</span>
@@ -157,7 +157,7 @@
                     {{--buttons--}}
                     <a href="{{route('deals.index')}}" class="btn btn-link" style="float: left; color: red;">{{ $buttons['close'] }}</a>
                     {{--<button class="btn btn-link" type="button" v-on:click="resetForm" style="float: left;">Notīrīt laukus</button>--}}
-                    <button type="submit" class="btn btn-success" :disabled="!isValid" style="float: right;">{{ $buttons['submit'] }}
+                    <button type="submit" class="btn btn-{{$form['class']}}" :disabled="!isValid" style="float: right;">{{ $buttons['submit'] }}
                     </button>
 
                 </form>
