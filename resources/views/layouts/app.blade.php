@@ -22,7 +22,7 @@
 {{--content--}}
 <div>
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -80,7 +80,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
 
         @if (session('statusText') && session('statusClass'))
         <div class="alert {{session('statusClass')}}">
