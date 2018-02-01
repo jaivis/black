@@ -18,6 +18,13 @@ class SystemsTableSeeder extends Seeder
         //  Truncate
         DB::table($table)->truncate();
 
+        //  Default
+        DB::table($table)->insert([
+            'NR' => "0",
+            'NAME' => "Kopā",
+            'TYPES_ID' => 0
+        ]);
+
         return;
 
         //

@@ -19,6 +19,13 @@ class SectionsTableSeeder extends Seeder
         //  Truncate
         DB::table($table)->truncate();
 
+        //  Default
+        DB::table($table)->insert([
+            'NR' => "0",
+            'NAME' => "Kopā",
+            'OBJECTS_ID' => 0
+        ]);
+
         return;
 
         //
