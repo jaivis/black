@@ -34,7 +34,17 @@ class DealController extends Controller
         return view('deals.form', [
             'route' => route('deals.store'),
             'method' => 'POST',
-            'method_field' => 'POST'
+            'method_field' => 'POST',
+            'form' => [
+                'class' => 'panel-success'
+            ],
+            'text' => [
+                'header' => 'Darījuma dati'
+            ],
+            'buttons' => [
+                'submit' => 'Pievienot',
+                'close' => 'Atpakaļ'
+            ]
         ]);
     }
 
@@ -88,7 +98,17 @@ class DealController extends Controller
         return view('deals.form', [
             'route' => route('deals.update', $id),
             'method' => 'POST',
-            'method_field' => 'PATCH'
+            'method_field' => 'PATCH',
+            'form' => [
+                'class' => 'panel-primary'
+            ],
+            'text' => [
+                'header' => 'Darījuma dati'
+            ],
+            'buttons' => [
+                'submit' => 'Saglabāt',
+                'close' => 'Atcelt'
+            ]
         ]);
     }
 

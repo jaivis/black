@@ -84,7 +84,7 @@
 
         @if (session('statusText') && session('statusClass'))
         <div class="alert {{session('statusClass')}}">
-            <strong>Veiksmīgi!</strong> {{session('statusText')}}.
+            {{session('statusText')}}.
         </div>
         @endif
 

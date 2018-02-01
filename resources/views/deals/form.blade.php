@@ -4,9 +4,9 @@
 
     <div id="v-deals-form">
 
-        <div class="panel panel-success">
+        <div class="panel {{$form['class']}}">
             <div class="panel-heading">
-                Darījuma dati
+                {{$text['header']}}
             </div>
             <div class="panel-body">
                 <form method="{{ $method }}" action="{{ $route }}" v-on:submit="showLoader">
@@ -155,9 +155,9 @@
                     </div>
 
                     {{--buttons--}}
-                    <a href="{{route('deals.index')}}" class="btn btn-link" style="float: left; color: red;">Atpakaļ</a>
+                    <a href="{{route('deals.index')}}" class="btn btn-link" style="float: left; color: red;">{{ $buttons['close'] }}</a>
                     {{--<button class="btn btn-link" type="button" v-on:click="resetForm" style="float: left;">Notīrīt laukus</button>--}}
-                    <button type="submit" class="btn btn-success" :disabled="!isValid" style="float: right;">Pievienot
+                    <button type="submit" class="btn btn-success" :disabled="!isValid" style="float: right;">{{ $buttons['submit'] }}
                     </button>
 
                 </form>
