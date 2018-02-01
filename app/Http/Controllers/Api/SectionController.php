@@ -56,7 +56,7 @@ class SectionController extends \App\Http\Controllers\Controller
     public function parent($id)
     {
         //
-        return \App\Models\Section::where(['OBJECTS_ID' => $id])->get();
+        return \App\Models\Section::whereIn('OBJECTS_ID', [0, $id])->get();
     }
 
     /**

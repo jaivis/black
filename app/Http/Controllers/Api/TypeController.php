@@ -56,7 +56,7 @@ class TypeController extends \App\Http\Controllers\Controller
     public function parent($id)
     {
         //
-        return \App\Models\Type::where(['ELEMENTS_ID' => $id])->get();
+        return \App\Models\Type::whereIn('ELEMENTS_ID', [0, $id])->get();
     }
 
     /**

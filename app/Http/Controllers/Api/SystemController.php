@@ -56,7 +56,7 @@ class SystemController extends \App\Http\Controllers\Controller
     public function parent($id)
     {
         //
-        return \App\Models\System::where(['TYPES_ID' => $id])->get();
+        return \App\Models\System::whereIn('TYPES_ID', [0, $id])->get();
     }
 
     /**
