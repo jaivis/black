@@ -27,6 +27,7 @@
                     <th>Veids</th>
                     <th>Sistēma</th>
                     <th>Izpildītājs</th>
+                    <th>Izveidots</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -41,6 +42,7 @@
                     <th>Veids</th>
                     <th>Sistēma</th>
                     <th>Izpildītājs</th>
+                    <th>Izveidots</th>
                     <th></th>
                 </tr>
                 </tfoot>
@@ -55,6 +57,7 @@
                     <td>{{$deal->TYPE_NR}} - {{$deal->TYPE_NAME}}</td>
                     <td>{{$deal->SYSTEM_NR}} - {{$deal->SYSTEM_NAME}}</td>
                     <td>{{$deal->PERFORMER}}</td>
+                    <td title="izveidots: {{$deal->created_at . "\n"}}labots: {{$deal->updated_at}}">{{$deal->created_at}}</td>
                     <td class="text-center">
                         <a href="{{ route('deals.edit', $deal->ID) }}" style="padding-right: 15px;">
                             <span class="glyphicon glyphicon-pencil"></span>
