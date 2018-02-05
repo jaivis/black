@@ -49,7 +49,7 @@ Route::prefix('update')->middleware('auth')->group(function () {
         $result = array();
         exec($command, $result);
         foreach ($result as $line) {
-            print($line . "\n");
+            print("{$line}\n</br>");
         }
     }
 
