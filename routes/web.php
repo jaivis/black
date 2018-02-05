@@ -56,14 +56,14 @@ Route::prefix('update')->middleware('auth')->group(function () {
     /*
      *  GIT Pull route
      */
-    Route::get('/update/git', function () {
+    Route::get('git', function () {
         print("<pre>" . execPrint("git pull") . "</pre>");
     });
 
     /*
      *  Composer update route
      */
-    Route::get('/update/composer', function () {
+    Route::get('composer', function () {
         print("<pre>" . execPrint("composer update") . "</pre>");
     });
 
