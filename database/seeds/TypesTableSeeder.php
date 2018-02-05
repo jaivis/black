@@ -17,7 +17,7 @@ class TypesTableSeeder extends Seeder
         $table = "_TYPES";
 
         //  Truncate
-        DB::table($table)->truncate();
+        //  DB::table($table)->truncate();
 
         //  Default
         DB::table($table)->insert([
@@ -26,6 +26,7 @@ class TypesTableSeeder extends Seeder
             'ELEMENTS_ID' => 0
         ]);
 
+        /*
         return;
 
         //
@@ -40,5 +41,6 @@ class TypesTableSeeder extends Seeder
             ]);
 
         }
+        */
     }
 }

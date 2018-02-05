@@ -16,8 +16,9 @@ class DealsTableSeeder extends Seeder
         $table = "_DEALS";
 
         //  Truncate
-        DB::table($table)->truncate();
+        //  DB::table($table)->truncate();
 
+        /*
         return;
 
         $names = [
@@ -77,6 +78,7 @@ class DealsTableSeeder extends Seeder
             ]);
 
         }
+        */
 
     }
 }

@@ -16,7 +16,7 @@ class SystemsTableSeeder extends Seeder
         $table = "_SYSTEMS";
 
         //  Truncate
-        DB::table($table)->truncate();
+        //  DB::table($table)->truncate();
 
         //  Default
         DB::table($table)->insert([
@@ -25,6 +25,7 @@ class SystemsTableSeeder extends Seeder
             'TYPES_ID' => 0
         ]);
 
+        /*
         return;
 
         //
@@ -37,5 +38,6 @@ class SystemsTableSeeder extends Seeder
             ]);
 
         }
+        */
     }
 }

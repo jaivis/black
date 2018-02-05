@@ -17,8 +17,9 @@ class ObjectsTableSeeder extends Seeder
         $table = "_OBJECTS";
 
         //  Truncate
-        DB::table($table)->truncate();
+        //  DB::table($table)->truncate();
 
+        /*
         return;
 
         //
@@ -32,5 +33,6 @@ class ObjectsTableSeeder extends Seeder
             ]);
 
         }
+        */
     }
 }

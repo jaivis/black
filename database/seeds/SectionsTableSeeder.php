@@ -17,7 +17,7 @@ class SectionsTableSeeder extends Seeder
         $table = "_SECTIONS";
 
         //  Truncate
-        DB::table($table)->truncate();
+        //  DB::table($table)->truncate();
 
         //  Default
         DB::table($table)->insert([
@@ -26,6 +26,7 @@ class SectionsTableSeeder extends Seeder
             'OBJECTS_ID' => 0
         ]);
 
+        /*
         return;
 
         //
@@ -53,5 +54,6 @@ class SectionsTableSeeder extends Seeder
             ]);
 
         }
+        */
     }
 }

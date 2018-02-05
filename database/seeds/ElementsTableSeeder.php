@@ -16,7 +16,7 @@ class ElementsTableSeeder extends Seeder
         $table = "_ELEMENTS";
 
         //  Truncate
-        DB::table($table)->truncate();
+        //  DB::table($table)->truncate();
 
         //  Default
         DB::table($table)->insert([
@@ -24,6 +24,7 @@ class ElementsTableSeeder extends Seeder
             'NAME' => "Kopā"
         ]);
 
+        /*
         return;
 
         //
@@ -36,5 +37,6 @@ class ElementsTableSeeder extends Seeder
             ]);
 
         }
+        */
     }
 }
