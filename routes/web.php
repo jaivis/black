@@ -11,21 +11,6 @@
 |
 */
 
-/*
- *  GIT Pull route
- */
-Route::get('/update/git', function(){
-    function execPrint($command) {
-        $result = array();
-        exec($command, $result);
-        foreach ($result as $line) {
-            print($line . "\n");
-        }
-    }
-
-    print("<pre>" . execPrint("git pull") . "</pre>");
-});
-
 Route::get('/', function () {
     return redirect()->route('login');
 });
@@ -56,3 +41,30 @@ Route::prefix('agent')->middleware('auth')->group(function () {
     Route::get('systems/parent/{id}', 'Api\SystemController@parent');
 });
 
+//  Update GIT & Composer
+Route::prefix('update')->middleware('auth')->group(function () {
+
+    function execPrint($command)
+    {
+        $result = array();
+        exec($command, $result);
+        foreach ($result as $line) {
+            print($line . "\n");
+        }
+    }
+
+    /*
+     *  GIT Pull route
+     */
+    Route::get('/update/git', function () {
+        print("<pre>" . execPrint("git pull") . "</pre>");
+    });
+
+    /*
+     *  Composer update route
+     */
+    Route::get('/update/composer', function () {
+        print("<pre>" . execPrint("composer update") . "</pre>");
+    });
+
+});
