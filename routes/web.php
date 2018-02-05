@@ -58,7 +58,7 @@ Route::prefix('update')->middleware('auth')->group(function () {
      *  GIT Pull route
      */
     Route::get('git', function () {
-        print("<pre>" . execPrint("git pull") . "</pre>");
+        print("<pre>" . execPrint("sudo git pull") . "</pre>");
     });
 
     /*
