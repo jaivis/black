@@ -44,6 +44,7 @@ Route::prefix('agent')->middleware('auth')->group(function () {
 //  Update GIT & Composer
 Route::prefix('update')->middleware('auth')->group(function () {
 
+    //  exec linux command
     function execPrint($command)
     {
         $result = array();
