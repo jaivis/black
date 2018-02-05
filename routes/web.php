@@ -41,31 +41,31 @@ Route::prefix('agent')->middleware('auth')->group(function () {
     Route::get('systems/parent/{id}', 'Api\SystemController@parent');
 });
 
-//  Update GIT & Composer
-Route::prefix('update')->middleware('auth')->group(function () {
-
-    //  exec linux command
-    function execPrint($command)
-    {
-        $result = array();
-        exec($command, $result);
-        foreach ($result as $line) {
-            print("{$line}\n</br>");
-        }
-    }
-
-    /*
-     *  GIT Pull route
-     */
-    Route::get('git', function () {
-        print("<pre>" . execPrint("sudo git pull") . "</pre>");
-    });
-
-    /*
-     *  Composer update route
-     */
-    Route::get('composer', function () {
-        print("<pre>" . execPrint("composer update") . "</pre>");
-    });
-
-});
+////  Update GIT & Composer
+//Route::prefix('update')->middleware('auth')->group(function () {
+//
+//    //  exec linux command
+//    function execPrint($command)
+//    {
+//        $result = array();
+//        exec($command, $result);
+//        foreach ($result as $line) {
+//            print("{$line}\n</br>");
+//        }
+//    }
+//
+//    /*
+//     *  GIT Pull route
+//     */
+//    Route::get('git', function () {
+//        print("<pre>" . execPrint("sudo git pull") . "</pre>");
+//    });
+//
+//    /*
+//     *  Composer update route
+//     */
+//    Route::get('composer', function () {
+//        print("<pre>" . execPrint("composer update") . "</pre>");
+//    });
+//
+//});
