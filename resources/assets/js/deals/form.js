@@ -310,10 +310,13 @@ new Vue({
             });
         }
     },
-    mounted: function () {
+    mounted: function(){
+        console.log('mounted');
+    },
+    created: function () {
         //
         var inst = this;
-
+        console.log('created');
         //
         this.showLoader();
 
@@ -338,10 +341,6 @@ new Vue({
                     console.log(error);
                 });
         }
-    },
-    created: function () {
-        //
-        var inst = this;
 
         //  request for objects list
         window.axios.get('/agent/objects')
