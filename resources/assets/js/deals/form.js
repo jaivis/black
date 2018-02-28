@@ -342,6 +342,8 @@ new Vue({
                 });
         }
 
+        console.log(inst.edit);
+
         //  request for objects list
         window.axios.get('/agent/objects')
             .then(function (response) {
@@ -371,7 +373,7 @@ new Vue({
                 //
                 inst.hideLoader();
             });
-        console.log(inst.edit);
+
         console.info('deals-create library loaded');
     }
 });
