@@ -325,7 +325,7 @@ new Vue({
             window.axios.get('/agent/deal/' + exsist_id)
                 .then(function (response) {
                     inst.edit = response.data;
-                    console.log(inst.edit);
+
                     //  edit - set main form data
                     if (inst.edit) {
                         inst.form.amount = inst.edit.AMOUNT;
