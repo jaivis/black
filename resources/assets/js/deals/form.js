@@ -310,9 +310,6 @@ new Vue({
             });
         }
     },
-    created: function(){
-        //
-    },
     mounted: function () {
         //
         var inst = this;
@@ -328,7 +325,7 @@ new Vue({
             window.axios.get('/agent/deal/' + exsist_id)
                 .then(function (response) {
                     inst.edit = response.data;
-
+                    console.log(inst.edit);
                     //  edit - set main form data
                     if (inst.edit) {
                         inst.form.amount = inst.edit.AMOUNT;
@@ -341,8 +338,6 @@ new Vue({
                     console.log(error);
                 });
         }
-
-        console.log(inst.edit);
 
         //  request for objects list
         window.axios.get('/agent/objects')
