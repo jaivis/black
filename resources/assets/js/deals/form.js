@@ -312,6 +312,9 @@ new Vue({
     },
     created: function(){
         //
+    },
+    mounted: function () {
+        //
         var inst = this;
 
         //
@@ -338,10 +341,6 @@ new Vue({
                     console.log(error);
                 });
         }
-    },
-    mounted: function () {
-        //
-        var inst = this;
 
         //  request for objects list
         window.axios.get('/agent/objects')
@@ -372,7 +371,7 @@ new Vue({
                 //
                 inst.hideLoader();
             });
-
+        console.log(inst.edit);
         console.info('deals-create library loaded');
     }
 });
