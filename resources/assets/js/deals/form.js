@@ -312,9 +312,6 @@ new Vue({
     },
     mounted: function () {
         //
-    },
-    created: function () {
-        //
         var inst = this;
 
         //
@@ -341,6 +338,10 @@ new Vue({
                     console.log(error);
                 });
         }
+    },
+    created: function () {
+        //
+        var inst = this;
 
         //  request for objects list
         window.axios.get('/agent/objects')
