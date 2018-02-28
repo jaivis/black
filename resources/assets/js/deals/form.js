@@ -312,6 +312,9 @@ new Vue({
     },
     mounted: function () {
         //
+    },
+    created: function () {
+        //
         var inst = this;
 
         //
